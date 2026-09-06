@@ -27,6 +27,10 @@ function App() {
     (total, producto) => total + producto.precio * producto.stock,
     0,
   );
+  const productosPorCategoria = productos.reduce((conteo, producto) => {
+    conteo[producto.categoria] = (conteo[producto.categoria] || 0) + 1;
+    return conteo;
+  }, {});
 
   const agregarProducto = (nuevoProducto) => {
     setProductos([...productos, nuevoProducto]);
@@ -59,7 +63,13 @@ function App() {
     setOrden("normal");
   };
 
-  const eliminarProductos = (id) => {
+    const eliminarProductos = (id) => {
+    const confirmar = window.confirm(
+      "¿Seguro que deseas eliminar este producto? Esta acción no se puede deshacer."
+    );
+
+    if (!confirmar) return;
+
     const nuevaLista = productos.filter((producto) => producto.id !== id);
 
     setProductos(nuevaLista);
@@ -114,6 +124,14 @@ function App() {
           </p>
         </div>
       </header>
+
+      <section className="resumen-categorias">
+        {Object.entries(productosPorCategoria).map(([categoria, cantidad]) => (
+          <span key={categoria} className="badge-categoria">
+            {categoria}: {cantidad}
+          </span>
+        ))}
+      </section>
 
       <section className="panel-filtros">
         <div className="grupo-busqueda">

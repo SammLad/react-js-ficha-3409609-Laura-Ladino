@@ -1053,3 +1053,24 @@ form .formulario-producto {
 body:has(.modal-overlay) {
   overflow: hidden;
 }
+
+/* ========================================
+   RESUMEN POR CATEGORÍA
+======================================== */
+
+.resumen-categorias {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.badge-categoria {
+  padding: 8px 14px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  color: var(--btn-bg);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
