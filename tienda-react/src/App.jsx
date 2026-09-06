@@ -196,11 +196,22 @@ function App() {
       <section className="FormAddProd">
         <FormularioProducto
           onAgregar={agregarProducto}
-          productoEditando={productoEditando}
-          onActualizar={actualizarProducto}
-          onCancelar={() => setProductoEditando(null)}
+
         />
       </section>
+
+      {productoEditando && (
+        <div className="modal-overlay">
+          <div className="modal-contenido">
+            <FormularioProducto
+              productoEditando={productoEditando}
+              onActualizar={actualizarProducto}
+              onCancelar={() => setProductoEditando(null)}
+              onAgregar={() => { }}
+            />
+          </div>
+        </div>
+      )}
     </main>
   );
 }
