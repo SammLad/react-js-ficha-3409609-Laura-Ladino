@@ -43,32 +43,27 @@ function FormularioProducto({ onAgregar, productoEditando, onActualizar, onCance
             return;
         }
 
-        onAgregar(nuevoProducto);
-
         if (productoEditando) {
             const productoActualizado = {
-                id: productoActualizado.id,
-                nombre: formulario.nombre,
-                precio: Number(formulario.precio),
+                id: productoEditando.id,
                 nombre: formulario.nombre,
                 precio: Number(formulario.precio),
                 categoria: formulario.categoria,
                 stock: Number(formulario.stock),
                 imagen: formulario.imagen
-            }
+            };
 
             onActualizar(productoActualizado);
         } else {
             const nuevoProducto = {
-                id: date.now(),
-                nombre: formulario.nombre,
-                precio: Number(formulario.precio),
+                id: Date.now(),
                 nombre: formulario.nombre,
                 precio: Number(formulario.precio),
                 categoria: formulario.categoria,
                 stock: Number(formulario.stock),
                 imagen: formulario.imagen
-            }
+            };
+
             onAgregar(nuevoProducto);
         }
 
@@ -147,7 +142,7 @@ function FormularioProducto({ onAgregar, productoEditando, onActualizar, onCance
             <div className="campo-formulario">
                 <label>URL de la imagen</label>
                 <input
-                    type="url"
+                    type="text"
                     name="imagen"
                     placeholder="Ej: https://sitio.com/imagen.jpg"
                     value={formulario.imagen}
