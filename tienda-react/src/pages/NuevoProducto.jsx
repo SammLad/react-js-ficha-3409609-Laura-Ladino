@@ -1,5 +1,17 @@
-function NuevoProducto() {
-    return <h1>Nuevo Producto</h1>;
+import { useNavigate } from "react-router";
+import FormularioProducto from "../components/FormularioProducto";
+
+function NuevoProducto({ agregarProducto }) {
+  const navigate = useNavigate();
+
+  const manejarGuardar = (nuevoProducto) => {
+    agregarProducto(nuevoProducto);
+    navigate("/inventario");
+  };
+
+  return (
+    <FormularioProducto onAgregar={manejarGuardar} />
+  );
 }
 
 export default NuevoProducto;
