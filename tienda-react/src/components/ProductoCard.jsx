@@ -1,3 +1,5 @@
+import { NavLink } from "react-router";
+
 function ProductoCard({ producto, onEliminar, modificarStock, onEditar }) {
     const {
         nombre, precio, categoria, stock, imagen
@@ -89,6 +91,10 @@ function ProductoCard({ producto, onEliminar, modificarStock, onEditar }) {
                     Editar
                 </button>
             </div>
+
+            <NavLink to={`/productos/${producto.id}`}>
+                Ver detalle
+            </NavLink>
 
         </article>
     );

@@ -82,6 +82,65 @@ body {
   padding: 35px 25px 60px;
 }
 
+/* ========================================
+   NAVEGACION
+======================================== */
+
+.navbar {
+  position: sticky;
+  top: 18px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto 42px;
+  padding: 7px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(237, 200, 204, 0.95);
+  border-radius: 18px;
+  box-shadow: 0 10px 28px rgba(59, 30, 33, 0.1);
+  backdrop-filter: blur(16px);
+}
+
+.navbar a {
+  position: relative;
+  padding: 10px 15px;
+  border-radius: 12px;
+  color: var(--text-secondary);
+  font-size: 0.87rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.navbar a:hover {
+  color: var(--btn-bg);
+  background: var(--bg-panel);
+  transform: translateY(-2px);
+}
+
+.navbar a.active {
+  color: #fff;
+  background: linear-gradient(135deg, var(--bg-header), var(--btn-light));
+  box-shadow: 0 5px 13px rgba(122, 34, 50, 0.22);
+}
+
+.contenedor > h1 {
+  margin: 20px 0 0;
+  color: var(--bg-header);
+  font-size: clamp(2.4rem, 7vw, 5rem);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  line-height: 1;
+  text-align: center;
+  text-shadow: 0 8px 20px rgba(122, 34, 50, 0.13);
+}
+
 
 /* ========================================
    ENCABEZADO
@@ -921,6 +980,23 @@ button:disabled,
     padding: 20px 15px 40px;
   }
 
+  .navbar {
+    position: static;
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .navbar a {
+    flex: 1 1 calc(50% - 6px);
+    padding: 10px 8px;
+    text-align: center;
+  }
+
+  .contenedor > h1 {
+    margin-top: 10px;
+    font-size: 3rem;
+  }
+
   .banner-titulo {
     padding: 25px 20px;
   }
@@ -1073,4 +1149,258 @@ body:has(.modal-overlay) {
   color: var(--btn-bg);
   font-size: 0.82rem;
   font-weight: 700;
+}
+
+/* ========================================
+   PORTADA Y ACERCA
+======================================== */
+
+.navbar {
+  justify-content: space-between;
+  width: 100%;
+}
+
+.navbar-brand {
+  color: var(--text-primary) !important;
+  font-size: 1.2rem !important;
+  font-weight: 800 !important;
+}
+
+.navbar-brand:hover {
+  background: transparent !important;
+  transform: none !important;
+}
+
+.navbar-brand-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navbar-brand-mark::before {
+  content: "▦";
+  color: var(--btn-bg);
+  font-size: 1.25rem;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.inicio,
+.acerca {
+  color: var(--text-primary);
+}
+
+.inicio-hero {
+  display: flex;
+  align-items: center;
+  min-height: 333px;
+  margin-bottom: 23px;
+  padding: 50px 40px;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, #fff0f2, #ffe3e5);
+}
+
+.inicio-hero-contenido {
+  max-width: 560px;
+}
+
+.inicio-eyebrow {
+  margin: 0 0 14px;
+  color: var(--btn-bg);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.inicio-hero h1,
+.acerca-encabezado h1 {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: clamp(2.6rem, 5vw, 4.2rem);
+  font-weight: 800;
+  letter-spacing: -1.8px;
+  line-height: 1.08;
+}
+
+.inicio-descripcion,
+.acerca-encabezado > p {
+  max-width: 500px;
+  margin: 18px 0 0;
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
+.inicio-acciones,
+.acerca-acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.inicio-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 10px 16px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.inicio-btn:hover {
+  transform: translateY(-2px);
+}
+
+.inicio-btn-principal {
+  color: #fff;
+  background: var(--btn-bg);
+  box-shadow: 0 7px 15px rgba(139, 43, 53, 0.2);
+}
+
+.inicio-btn-principal:hover {
+  color: #fff;
+  background: var(--btn-hover);
+  box-shadow: 0 10px 20px rgba(103, 31, 39, 0.26);
+}
+
+.inicio-btn-secundario {
+  color: var(--btn-bg);
+  background: rgba(255, 255, 255, 0.65);
+  border-color: var(--border-color);
+}
+
+.inicio-btn-secundario:hover {
+  color: var(--btn-bg);
+  background: #fff;
+}
+
+.inicio-metricas,
+.acerca-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.inicio-metrica {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-height: 108px;
+  padding: 23px 20px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid var(--border-light);
+  border-radius: 14px;
+  box-shadow: var(--shadow-sm);
+}
+
+.inicio-metrica strong {
+  color: var(--text-primary);
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.inicio-metrica span {
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+}
+
+.inicio-pie {
+  margin: 136px 0 0;
+  color: var(--text-muted);
+  font-size: 0.68rem;
+  text-align: center;
+}
+
+.acerca {
+  padding-bottom: 30px;
+}
+
+.acerca-encabezado {
+  padding: 38px 40px;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, #fff0f2, #fffafa);
+}
+
+.acerca-encabezado > p:last-child {
+  max-width: 610px;
+}
+
+.acerca-grid {
+  margin-top: 22px;
+}
+
+.acerca-bloque {
+  padding: 23px 20px;
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-radius: 14px;
+}
+
+.acerca-numero {
+  color: var(--btn-light);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.acerca-bloque h2 {
+  margin: 12px 0 8px;
+  color: var(--text-primary);
+  font-size: 1.25rem;
+}
+
+.acerca-bloque p {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.acerca-acciones {
+  justify-content: center;
+}
+
+@media (max-width: 600px) {
+  .navbar-brand {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .navbar-links {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .inicio-hero,
+  .acerca-encabezado {
+    padding: 32px 22px;
+  }
+
+  .inicio-hero h1,
+  .acerca-encabezado h1 {
+    font-size: 2.7rem;
+  }
+
+  .inicio-metricas,
+  .acerca-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .inicio-pie {
+    margin-top: 55px;
+  }
 }
