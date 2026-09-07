@@ -130,7 +130,11 @@ body {
   box-shadow: 0 5px 13px rgba(122, 34, 50, 0.22);
 }
 
-.contenedor > h1 {
+.navbar a.active .navbar-brand-mark::before {
+  color: var(--text-primary) !important;
+}
+
+.contenedor>h1 {
   margin: 20px 0 0;
   color: var(--bg-header);
   font-size: clamp(2.4rem, 7vw, 5rem);
@@ -992,7 +996,7 @@ button:disabled,
     text-align: center;
   }
 
-  .contenedor > h1 {
+  .contenedor>h1 {
     margin-top: 10px;
     font-size: 3rem;
   }
@@ -1166,6 +1170,16 @@ body:has(.modal-overlay) {
   font-weight: 800 !important;
 }
 
+.navbar-brand.active {
+  color: var(--text-primary) !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.navbar-brand.active .navbar-brand-mark {
+  color: var(--text-primary) !important;
+}
+
 .navbar-brand:hover {
   background: transparent !important;
   transform: none !important;
@@ -1179,8 +1193,12 @@ body:has(.modal-overlay) {
 
 .navbar-brand-mark::before {
   content: "▦";
-  color: var(--btn-bg);
+  color: var(--text-primary);
   font-size: 1.25rem;
+}
+
+.navbar-brand.active .navbar-brand-mark::before {
+  color: var(--text-primary);
 }
 
 .navbar-links {
@@ -1230,7 +1248,7 @@ body:has(.modal-overlay) {
 }
 
 .inicio-descripcion,
-.acerca-encabezado > p {
+.acerca-encabezado>p {
   max-width: 500px;
   margin: 18px 0 0;
   color: var(--text-secondary);
@@ -1336,7 +1354,7 @@ body:has(.modal-overlay) {
   background: linear-gradient(135deg, #fff0f2, #fffafa);
 }
 
-.acerca-encabezado > p:last-child {
+.acerca-encabezado>p:last-child {
   max-width: 610px;
 }
 
