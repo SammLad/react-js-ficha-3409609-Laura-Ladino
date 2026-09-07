@@ -3,6 +3,21 @@ import { productos as productosIniciales, obtenerProductosIniciales } from "./da
 import { useState, useEffect } from "react";
 import "./App.css";
 import FormularioProducto from "./components/FormularioProducto";
+import { Routes, Route } from "react-router";
+import Inicio from "./pages/Inicio"
+import Inventario from "./pages/Inventario"
+import NuevoProducto from "./pages/NuevoProducto"
+import Acerca from "./pages/Acerca"
+import NoEncontrado from "./pages/NoEncontrado"
+import Navbar from "./components/Navbar.jsx";
+
+
+/*
+  Responsabilidades actuales de App.jsx:
+  1. Gestión de Estado y Persistencia (Datos): Controla el estado global de los productos (crear, leer, actualizar, eliminar y modificar stock) y se encarga de guardar los cambios en el localStorage.
+  2. Lógica de Negocio (Filtrado y Cálculos): Ejecuta toda la lógica para buscar, filtrar (por categoría y disponibilidad), ordenar productos y calcular las estadísticas del inventario (valor total, disponibles, agotados).
+  3. Renderizado de la Interfaz (UI Completa): Se encarga de dibujar absolutamente todas las vistas en una sola página (la cabecera, el panel de filtros, la grilla de resultados, el formulario para agregar y el modal de edición).
+*/
 
 function App() {
   const [busqueda, setBusqueda] = useState("");
@@ -63,7 +78,7 @@ function App() {
     setOrden("normal");
   };
 
-    const eliminarProductos = (id) => {
+  const eliminarProductos = (id) => {
     const confirmar = window.confirm(
       "¿Seguro que deseas eliminar este producto? Esta acción no se puede deshacer."
     );
@@ -108,9 +123,11 @@ function App() {
 
   return (
     <main className="contenedor">
+      <Navbar />
       <header className="banner-titulo">
         <h1 className="tiutle">Tienda tecnológica</h1>
         <div className="resumen-inventario">
+
           <p>
             <strong>Disponibles:</strong> {disponibles.length}
           </p>
@@ -124,6 +141,14 @@ function App() {
           </p>
         </div>
       </header>
+
+      <Routes>
+        <Route path="/" element={<Inicio />} />
+        <Route path="/inventario" element={<Inventario />} />
+        <Route path="/nuevo" element={<NuevoProducto />} />
+        <Route path="/acerca" element={<Acerca />} />
+        <Route path="*" element={<NoEncontrado />} />
+      </Routes>
 
       <section className="resumen-categorias">
         {Object.entries(productosPorCategoria).map(([categoria, cantidad]) => (
